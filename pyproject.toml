@@ -1,13 +1,12 @@
 [tool.poetry]
-name = "repl_python3_ca-primes"
+name = "ca-primes"
 version = "0.1.0"
 description = ""
 authors = ["Krake24 <<>>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-env = "^0.1.0"
-discord = "^1.7.3"
+disnake = "^2.5.1"
 
 [tool.poetry.dev-dependencies]
 
