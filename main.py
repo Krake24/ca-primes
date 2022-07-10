@@ -17,7 +17,7 @@ async def on_ready():
 
 @bot.slash_command(description="Shows Prime Eternal with the given ID")
 async def prime(inter, id: commands.Range[1, 7622]):
-    prime = primes[id - 1]
+    prime = next(filter(lambda p: p['id'] == id, primes))
     embed = disnake.Embed(
       title="Prime Eternal #" + str(id),
       url=osAssetUrl + str(id),
