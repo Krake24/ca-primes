@@ -11,10 +11,6 @@ caArtUrl="https://champions.io/champions/nfts/art/"
 
 bot = commands.Bot(command_prefix=commands.when_mentioned)
 
-@bot.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(bot))
-
 @bot.slash_command(description="Shows Prime Eternal with the given ID")
 async def prime(inter, id: commands.Range[1, 7622]):
     prime = next(filter(lambda p: p['id'] == id, primes))
