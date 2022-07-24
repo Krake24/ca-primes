@@ -6,13 +6,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def main():
     return 'alive'
-
-
-app.run(host='0.0.0.0', port=5000, debug=True)
 
 f = open("primes.json", "r")
 primes = json.loads(f.read())
@@ -61,3 +57,4 @@ async def prime(inter, id: commands.Range[1, 7622]):
 
 
 bot.run(os.getenv("botToken"))
+app.run(host='0.0.0.0', port=5000)
