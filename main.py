@@ -1,6 +1,7 @@
 import os
 import json
 import disnake
+import threading
 from disnake.ext import commands
 from flask import Flask
 
@@ -56,5 +57,6 @@ async def prime(inter, id: commands.Range[1, 7622]):
     await inter.response.send_message(embed=embed)
 
 
+if __name__ == "__main__":
+    threading.Thread(target=lambda: app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)).start()
 bot.run(os.getenv("botToken"))
-app.run(host='0.0.0.0', port=5000)
