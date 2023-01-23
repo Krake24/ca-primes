@@ -1,15 +1,9 @@
+#!/bin/env python3
 import os
 import json
 import disnake
 import threading
 from disnake.ext import commands
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def main():
-    return 'alive'
 
 f = open("primes.json", "r")
 primes = json.loads(f.read())
@@ -57,6 +51,4 @@ async def prime(inter, id: commands.Range[1, 7622]):
     await inter.response.send_message(embed=embed)
 
 
-if __name__ == "__main__":
-    threading.Thread(target=lambda: app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)).start()
 bot.run(os.getenv("botToken"))
