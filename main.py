@@ -2,11 +2,12 @@
 import os
 import json
 import disnake
-import threading
 from disnake.ext import commands
 
 f = open("primes.json", "r")
 primes = json.loads(f.read())
+
+print("Primes read")
 
 osAssetUrl = "https://opensea.io/assets/0x13d15d8b7b2bf48cbaf144c5c50e67b6b635b5cd/"
 caArtUrl = "https://champions.io/champions/nfts/art/"
