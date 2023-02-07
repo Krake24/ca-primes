@@ -58,25 +58,25 @@ async def prime(inter, id: commands.Range[1, 7622]):
 
 @bot.slash_command(description="Shows Elemental Eternal with the given ID")
 async def elemental(inter, id: commands.Range[1, 10000]):
-    pet = next(filter(lambda p: str(p['id']) == str(id), elementals))
+    elemental = next(filter(lambda p: str(p['id']) == str(id), elementals))
     embed = disnake.Embed(title="Elemental Eternal #" + str(id),
                           url=osElementalsUrl + str(id),
                           colour=0x710193)
-    embed.set_image(url=caElementalArtUrl + pet["id"] + "/thumbnail.gif")
-    embed.add_field(name="Sublime", value=pet["Sublime"], inline=True)
-    embed.add_field(name="Purity", value=pet["Purity"], inline=True)
+    embed.set_image(url=caElementalArtUrl + elemental["id"] + "/thumbnail.gif")
+    embed.add_field(name="Sublime", value=elemental["Sublime"], inline=True)
+    embed.add_field(name="Purity", value=elemental["Purity"], inline=True)
     embed.add_field(name="Core Essence",
-                    value=pet["Core Essence"],
+                    value=elemental["Core Essence"],
                     inline=True)
-    embed.add_field(name="Family", value=pet["Family"], inline=False)
-    embed.add_field(name="Fangs", value=pet["Fangs"], inline=True)
-    embed.add_field(name="Claws", value=pet["Claws"], inline=True)
-    embed.add_field(name="Horns", value=pet["Horns"], inline=True)
-    embed.add_field(name="Tail", value=pet["Tail"], inline=True)
-    embed.add_field(name="Warpaint", value=pet["Warpaint"], inline=True)
-    embed.add_field(name="Wings", value=pet["Wings"], inline=True)
-    embed.add_field(name="Piercing", value=pet["Piercing"], inline=True)
-    embed.add_field(name="Hairstyle", value=pet["Hairstyle"], inline=True)
+    embed.add_field(name="Family", value=elemental["Family"], inline=False)
+    embed.add_field(name="Fangs", value=elemental["Fangs"], inline=True)
+    embed.add_field(name="Claws", value=elemental["Claws"], inline=True)
+    embed.add_field(name="Horns", value=elemental["Horns"], inline=True)
+    embed.add_field(name="Tail", value=elemental["Tail"], inline=True)
+    embed.add_field(name="Warpaint", value=elemental["Warpaint"], inline=True)
+    embed.add_field(name="Wings", value=elemental["Wings"], inline=True)
+    embed.add_field(name="Piercing", value=elemental["Piercing"], inline=True)
+    embed.add_field(name="Hairstyle", value=elemental["Hairstyle"], inline=True)
     embed.add_field(name="Halo", value="None", inline=True)
     embed.add_field(name="View on champions.io", value="[Details](" + eeDetails + str(id) + ")",
                     inline=True)
