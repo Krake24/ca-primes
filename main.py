@@ -57,7 +57,7 @@ async def prime(inter, id: commands.Range[1, 7622]):
     await inter.response.send_message(embed=embed)
 
 @bot.slash_command(description="Shows Elemental Eternal with the given ID")
-async def pet(inter, id: commands.Range[1, 10000]):
+async def elemental(inter, id: commands.Range[1, 10000]):
     pet = next(filter(lambda p: str(p['id']) == str(id), elementals))
     embed = disnake.Embed(title="Elemental Eternal #" + str(id),
                           url=osElementalsUrl + str(id),
@@ -84,7 +84,7 @@ async def pet(inter, id: commands.Range[1, 10000]):
     
 @bot.slash_command(description="Shows Pet with the given ID")
 async def pet(inter, id: commands.Range[1, 22750]):
-    pet = next(filter(lambda p: str(p['id']) == str(id), pet))
+    pet = next(filter(lambda p: str(p['id']) == str(id), pets))
     embed = disnake.Embed(title="Pet #" + str(id),
                           url=osPetsUrl + str(id),
                           colour=0x710193)
