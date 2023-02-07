@@ -36,7 +36,7 @@ async def prime(inter, id: commands.Range[1, 7622]):
     embed = disnake.Embed(title="Prime Eternal #" + str(id),
                           url=osPrimesUrl + str(id),
                           colour=0x710193)
-    embed.set_image(url=caPrimeArtUrl + str(prime["id"]) + "/animation.gif")
+    embed.set_image(url=caPrimeArtUrl + str(id) + "/animation.gif")
     embed.add_field(name="Divinity", value=prime["divinity"], inline=True)
     embed.add_field(name="Purity", value=prime["purity"], inline=True)
     embed.add_field(name="Core Essence",
@@ -53,7 +53,7 @@ async def prime(inter, id: commands.Range[1, 7622]):
     embed.add_field(name="Hairstyle", value=prime["hairstyle"], inline=True)
     embed.add_field(name="Halo", value=prime["halo"], inline=True)
     embed.add_field(name="View on champions.io", value="[Details](" + peDetails + str(id) + ")",
-                    inline=True)
+                    inline=False)
     await inter.response.send_message(embed=embed)
 
 @bot.slash_command(description="Shows Elemental Eternal with the given ID")
@@ -62,7 +62,7 @@ async def elemental(inter, id: commands.Range[1, 10000]):
     embed = disnake.Embed(title="Elemental Eternal #" + str(id),
                           url=osElementalsUrl + str(id),
                           colour=0x710193)
-    embed.set_image(url=caElementalArtUrl + elemental["id"] + "/thumbnail.gif")
+    embed.set_image(url=caElementalArtUrl + str(id) + "/thumbnail.gif")
     embed.add_field(name="Sublime", value=elemental["Sublime"], inline=True)
     embed.add_field(name="Purity", value=elemental["Purity"], inline=True)
     embed.add_field(name="Core Essence",
@@ -79,7 +79,7 @@ async def elemental(inter, id: commands.Range[1, 10000]):
     embed.add_field(name="Hairstyle", value=elemental["Hairstyle"], inline=True)
     embed.add_field(name="Halo", value="None", inline=True)
     embed.add_field(name="View on champions.io", value="[Details](" + eeDetails + str(id) + ")",
-                    inline=True)
+                    inline=False)
     await inter.response.send_message(embed=embed)
     
 @bot.slash_command(description="Shows Pet with the given ID")
@@ -88,13 +88,15 @@ async def pet(inter, id: commands.Range[1, 22750]):
     embed = disnake.Embed(title="Pet #" + str(id),
                           url=osPetsUrl + str(id),
                           colour=0x710193)
-    embed.set_image(url=caPetArtUrl + pet["id"] + "/nft.mp4")
-    embed.add_field(name="Family", value=pet["Family"], inline=False)
+    embed.set_image(url=caPetArtUrl + str(id) + "/pfp.png")
+    embed.add_field(name="Family", value=pet["Family"], inline=True)
     embed.add_field(name="House Banner", value=pet["House Banner"], inline=True)
     embed.add_field(name="Favorite Family", value=pet["Favorite Family"], inline=True)
     embed.add_field(name="Personality", value=pet["Personality"], inline=True)
     embed.add_field(name="Favorite Toy", value=pet["Favorite Toy"], inline=True)
     embed.add_field(name="Favorite Food", value=pet["Favorite Food"], inline=True)
+    embed.add_field(name="View on champions.io", value="[Details](" + petDetails + str(id) + ")",
+                    inline=False)
     
     await inter.response.send_message(embed=embed)
 
