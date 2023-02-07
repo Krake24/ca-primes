@@ -25,11 +25,11 @@ bot = commands.Bot(command_prefix=commands.when_mentioned)
 
 @bot.slash_command(description="Shows Prime Eternal with the given ID")
 async def prime(inter, id: commands.Range[1, 7622]):
-    prime = next(filter(lambda p: p['id'] == id, primes))
+    prime = next(filter(lambda p: str(p['id']) == str(id), primes))
     embed = disnake.Embed(title="Prime Eternal #" + str(id),
                           url=osPrimesUrl + str(id),
                           colour=0x710193)
-    embed.set_image(url=caPrimeArtUrl + prime["pic_code"] + "/animation.gif")
+    embed.set_image(url=caPrimeArtUrl + str(prime["id"]) + "/animation.gif")
     embed.add_field(name="Divinity", value=prime["divinity"], inline=True)
     embed.add_field(name="Purity", value=prime["purity"], inline=True)
     embed.add_field(name="Core Essence",
@@ -43,19 +43,19 @@ async def prime(inter, id: commands.Range[1, 7622]):
     embed.add_field(name="Warpaint", value=prime["warpaint"], inline=True)
     embed.add_field(name="Wings", value=prime["wings"], inline=True)
     embed.add_field(name="Piercing", value=prime["piercing"], inline=True)
-    embed.add_field(name="Halo", value=prime["halo"], inline=True)
     embed.add_field(name="Hairstyle", value=prime["hairstyle"], inline=True)
-    embed.add_field(name="View on champions.io", value="[Details](" + peDetails + id + ")",
+    embed.add_field(name="Halo", value=prime["halo"], inline=True)
+    embed.add_field(name="View on champions.io", value="[Details](" + peDetails + str(id) + ")",
                     inline=True)
     await inter.response.send_message(embed=embed)
 
 @bot.slash_command(description="Shows Elemental Eternal with the given ID")
 async def elemental(inter, id: commands.Range[1, 10000]):
-    elemental = next(filter(lambda p: p['id'] == id, elementals))
+    elemental = next(filter(lambda p: str(p['id']) == str(id), elementals))
     embed = disnake.Embed(title="Elemental Eternal #" + str(id),
                           url=osElementalsUrl + str(id),
                           colour=0x710193)
-    embed.set_image(url=caElementalArtUrl + elemental["pic_code"] + "/animation.gif")
+    embed.set_image(url=caElementalArtUrl + elemental["id"] + "/thumbnail.gif")
     embed.add_field(name="Sublime", value=elemental["Sublime"], inline=True)
     embed.add_field(name="Purity", value=elemental["Purity"], inline=True)
     embed.add_field(name="Core Essence",
@@ -70,7 +70,8 @@ async def elemental(inter, id: commands.Range[1, 10000]):
     embed.add_field(name="Wings", value=elemental["Wings"], inline=True)
     embed.add_field(name="Piercing", value=elemental["Piercing"], inline=True)
     embed.add_field(name="Hairstyle", value=elemental["Hairstyle"], inline=True)
-    embed.add_field(name="View on champions.io", value="[Details](" + eeDetails + id + ")",
+    embed.add_field(name="Halo", value="None", inline=True)
+    embed.add_field(name="View on champions.io", value="[Details](" + eeDetails + str(id) + ")",
                     inline=True)
     await inter.response.send_message(embed=embed)
 
