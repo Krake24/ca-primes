@@ -27,6 +27,8 @@ osPetsUrl = "https://opensea.io/assets/0x753f10598c026e73182ca74ed33de05974b9f08
 caPetArtUrl = "https://www.champions.io/pets/nfts/art/"
 petDetails = "https://www.champions.io/pet-details/"
 
+footerText = "©《Pirre》- The Prime Syndicate"
+
 bot = commands.Bot(command_prefix=commands.when_mentioned)
 
 
@@ -54,6 +56,7 @@ async def prime(inter, id: commands.Range[1, 7622]):
     embed.add_field(name="Halo", value=prime["halo"], inline=True)
     embed.add_field(name="View on champions.io", value="[Details](" + peDetails + str(id) + ")",
                     inline=True)
+    embed.set_footer(text=footerText)
     await inter.response.send_message(embed=embed)
 
 @bot.slash_command(description="Shows Elemental Eternal with the given ID")
@@ -80,6 +83,7 @@ async def elemental(inter, id: commands.Range[1, 10000]):
     embed.add_field(name="Halo", value="None", inline=True)
     embed.add_field(name="View on champions.io", value="[Details](" + eeDetails + str(id) + ")",
                     inline=True)
+    embed.set_footer(text=footerText)
     await inter.response.send_message(embed=embed)
     
 @bot.slash_command(description="Shows Pet with the given ID")
@@ -95,8 +99,7 @@ async def pet(inter, id: commands.Range[1, 22750]):
     embed.add_field(name="Personality", value=pet["Personality"], inline=True)
     embed.add_field(name="Favorite Toy", value=pet["Favorite Toy"], inline=True)
     embed.add_field(name="Favorite Food", value=pet["Favorite Food"], inline=True)
-    
+    embed.set_footer(text=footerText)
     await inter.response.send_message(embed=embed)
-
 
 bot.run(os.getenv("botToken"))
