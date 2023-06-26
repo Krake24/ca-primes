@@ -15,15 +15,15 @@ pets = json.loads(f.read())
 
 print("metadata loaded")
 
-osPrimesUrl = "https://opensea.io/assets/ethereum/0x13d15d8b7b2bf48cbaf144c5c50e67b6b635b5cd/"
+osPrimesUrl = "https://opensea.io/assets/matic/0xe22575fAd77781D730C6Ed5d24dD1908d6D5b730/"
 caPrimeArtUrl = "https://www.champions.io/champions/nfts/art/"
 peDetails = "https://www.champions.io/champion-details/"
 
-osElementalsUrl = "https://opensea.io/assets/ethereum/0xeb88dda4cc8739c064debf0b8672e596db6bccf4/"
+osElementalsUrl = "https://opensea.io/assets/matic/0xc615bfb753fc2bab65065987391d046105673284/"
 caElementalArtUrl = "https://www.champions.io/elementals/nfts/art/"
-eeDetails = "https://www.champions.io/pet-details/"
+eeDetails = "https://www.champions.io/elemental-details/"
 
-osPetsUrl = "https://opensea.io/assets/ethereum/0x753f10598c026e73182ca74ed33de05974b9f083/"
+osPetsUrl = "https://opensea.io/assets/matic/0x58481864048671c833a0cee0d467d34534171713/"
 caPetArtUrl = "https://www.champions.io/pets/nfts/art/"
 petDetails = "https://www.champions.io/pet-details/"
 
